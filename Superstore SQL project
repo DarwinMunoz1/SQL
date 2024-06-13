@@ -1,0 +1,27 @@
+# In this SQL, I am querying a database with multiple tables called superstore to quantify statistics about the items and order data.
+
+# Write a SQL query that orders the items by price.
+select *
+from superstore
+order by price;
+
+#Write a SQL query that will show a statistic about the item prices, like a sum, average, minimum, maximum, or count.
+select sum(price)
+from superstore;
+
+# Write a SQL query that will show the average price of items in the category of Kitchen Supplies.
+select avg(price)
+from superstore
+where category = 'Kitchen Supplies';
+
+# Write a SQL query that shows the amount of Air Purifiers in stock.
+select sum(stock_quantity)
+from superstore
+where item_name = 'Air Purifier';
+
+# Write a SQL query that takes the items in the category Furnishings, and orders it by price ascending but only returns the first four rows.
+select *
+from superstore
+where category = 'Furnishings'
+order by price asc
+limit 4;
