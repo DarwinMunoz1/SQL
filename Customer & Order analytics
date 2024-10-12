@@ -29,9 +29,11 @@ order by price asc                   -- ascending in price
 limit 1; -- limit to the cheapest product
 
 #5. What is the total revenue for each product sold in January?
-select sum(quantity)* price as revenue,product
+select sum(quantity)* price as revenue,
+product
 from JanSales
-group by product;
+where Product != 'Product'     -- result needed cleaning
+group by Product;
 
 #6. Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
 SELECT
