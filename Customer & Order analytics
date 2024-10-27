@@ -59,3 +59,9 @@ sum(Quantity) as quantity
 from FebSales
 where location like '%Los Angeles%' 
 group by Product;
+
+#8. List all the products sold in Los Angeles in February, and include how many of each were sold.
+select product, sum(quantity)
+from FebSales
+where location like '%Los Angeles%' -- '%' will query match any order location that has 'Los Angeles' in it.
+group by product;
