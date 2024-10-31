@@ -65,3 +65,39 @@ select product, sum(quantity)
 from FebSales
 where location like '%Los Angeles%' -- '%' will query match any order location that has 'Los Angeles' in it.
 group by product;
+
+#9. Which locations in New York received at least 3 orders in January, and how many orders did they each receive? 
+select distinct location, sum(orderID)
+from JanSales
+where location like '% New York%'
+and length(orderID) = 6
+and orderid != 'Order ID'
+group by location
+having count(orderID) >=3;
+
+#10. How many of each type of headphones were sold in February?
+select product, sum(quantity)
+from FebSales
+where Product like '%headphones%'
+group by product;
+
+#11. What was the average amount spent per account in February? 
+select avg(quantity & price) as avg_amount
+from FebSales
+left join customers
+on febSales.orderID = customers.order_id
+where length(orderid) = 6
+and orderid != 'Order ID';
+
+#12. What was the average quantity of products purchased per account in February?
+select avg(quantity) as avg_quantity
+from FebSales
+left join customers
+on FebSales.orderID = customers.order_id;
+
+#13. Which product brought in the most revenue in January and how much revenue did it bring in total?
+select product, sum(quantity* price) as revenue
+from JanSales
+group by product
+order by revenue desc
+limit 1;
