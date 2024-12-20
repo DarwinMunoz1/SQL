@@ -7,7 +7,7 @@ CREATE TABLE fortune_companies (
     healthcare_benefits BIT,
     paid_time_off_days INTEGER,
     maternity_leave_weeks INTEGER,
-    avg_employee_tenure REAL
+    avg_employee_tenure REAL 
 );
 
 INSERT INTO fortune_companies (company_name, industry, revenue, employees, healthcare_benefits, paid_time_off_days, maternity_leave_weeks, avg_employee_tenure)
@@ -56,7 +56,7 @@ VALUES
     ('Company JJ', 'Manufacturing', 370.0, 3100, 1, 20, 12, 7.6),
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
 
-#SQL QUERIES-------------------------------------------------------------------------------------------------
+#SQL QUERIES--------------------------------------------------------------------------------------------------
 
 # How do companies compare based on the number of paid time off days they provide? and what companies give the most days?
 select company_name, paid_time_off_days,
